@@ -6,10 +6,10 @@ const notification = document.getElementById("notification");
 // const clearAll = document.getElementById("clearAll");
 
 function updateSlider() {
-  const gridSize = slider.value;
+  const sliderSize = slider.value;
   document.getElementById("sizeValue").innerText =
     slider.value + " X " + slider.value;
-  gridCreator(gridSize);
+  gridCreator(sliderSize);
 }
 
 playInstructions.addEventListener("click", () => {
@@ -28,15 +28,23 @@ function clearAll() {
 }
 
 function gridCreator(gridSize) {
-  for (let index = 0; index < gridSize; index++) {
-    const rwflex = document.createElement("div");
-    rwflex.classList.add("rwflex");
-    const bxflex = document.createElement("div");
-    bxflex.classList.add("bxflex");
-    rwflex.innerText = "hello world";
-    bxflex.innerText = "hello world";
-    grid.appendChild(rwflex);
-    rwflex.appendChild(bxflex);
+  grid.innerHTML = "";
+  grid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+  grid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+
+  for (let i = 0; i < gridSize * gridSize; i++) {
+    const gridElement = document.createElement("div");
+    gridElement.classList.add("grid-element");
+    gridElement.addEventListener("mouseover", colorEffect);
+    // gridElement.addEventListener("mouseover", colorEffect);
+    grid.appendChild(gridElement);
   }
 }
-// gridCreator();
+
+function colorEffect(e) {
+  e.target.style.backgroundColor = "#000000";
+}
+
+window.onload = () => {
+  gridCreator(16);
+};
