@@ -28,16 +28,15 @@ function clearAll() {
 }
 
 function gridCreator(gridSize) {
-  grid.innerHTML = "";
-  grid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
-  grid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
-
-  for (let i = 0; i < gridSize * gridSize; i++) {
-    const gridElement = document.createElement("div");
-    gridElement.classList.add("grid-element");
-    // gridElement.addEventListener("mouseover", changeColor);
-    // gridElement.addEventListener("mousedown", changeColor);
-    grid.appendChild(gridElement);
+  for (let index = 0; index < gridSize; index++) {
+    const rwflex = document.createElement("div");
+    rwflex.classList.add("rwflex");
+    const bxflex = document.createElement("div");
+    bxflex.classList.add("bxflex");
+    rwflex.innerText = "hello world";
+    bxflex.innerText = "hello world";
+    grid.appendChild(rwflex);
+    rwflex.appendChild(bxflex);
   }
 }
 // gridCreator();
