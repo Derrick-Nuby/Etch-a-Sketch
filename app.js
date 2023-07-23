@@ -5,8 +5,10 @@ const playNow = document.getElementById("play-now");
 const notification = document.getElementById("notification");
 // const clearAll = document.getElementById("clearAll");
 
+let sliderSize = 16;
+
 function updateSlider() {
-  const sliderSize = slider.value;
+  sliderSize = slider.value;
   document.getElementById("sizeValue").innerText =
     slider.value + " X " + slider.value;
   gridCreator(sliderSize);
@@ -20,11 +22,13 @@ playInstructions.addEventListener("click", () => {
 
 playNow.addEventListener("click", () => {
   notification.style.cssText = "display: none;";
-  grid.style.cssText = "display: block;";
+  grid.style.cssText = "display: grid;";
+  gridCreator(sliderSize);
 });
 
 function clearAll() {
   grid.innerHTML = "";
+  gridCreator(sliderSize);
 }
 
 function gridCreator(gridSize) {
@@ -46,5 +50,5 @@ function colorEffect(e) {
 }
 
 window.onload = () => {
-  gridCreator(16);
+  gridCreator(sliderSize);
 };
