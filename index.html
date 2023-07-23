@@ -11,22 +11,36 @@
     <div class="navigation">
         <div class="slider">
             <div class="slider">
-                <input id="mainSlider"  type="range" min="1" max="100" value="16" oninput="updateSizeValue(this.value)">
+                <input id="slider"  type="range" min="2" max="100" value="16" oninput="updateSlider(this.value)">
             </div>
             <div id="sizeValue" class="size-value">16 x 16</div>
         </div>
         <div class="buttons">
-            <button>How-To-Play</button>
+            <button id="playInstructions">How-To-Play</button>
             <button>Single-Color</button>
             <button>Random-Colors</button>
             <button>Eraser</button>
-            <button>Clear All</button>
+            <button id="clearAll" onclick="clearAll()">Clear All</button>
         </div>
 
     </div>
+    <div class="notification" id="notification">
+        <div class="not-txt">
+            <h3>This is a sketch paper you can draw what you like on it</h3>
+            
+            <ol>
+                <li>To start click on the slider to choose your canvas boxes then hover the mouse in the white space and then play
+                </li>
+                <li>The single color button defaults to black color; so by clicking it you draw in black</li>
+                <li>By clicking random colors you draw in colorful colr such as rgb and rainbow colours</li>
+                <li>To erase some colors click the eraser button</li>
+                <li>To clear all the text click clear all</li>
+            </ol>
 
-    <div class="container">
-        
+        </div>
+        <button id="play-now">Play-Now</button>
+    </div>
+    <div class="grid-container" id="grid-container">
     </div>
 </body>
 <script src="./app.js"></script>
