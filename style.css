@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@500;600;700&family=Ubuntu&display=swap');
 
 body {
     padding: 0px;
@@ -47,9 +47,57 @@ button {
 button:hover {
     cursor: pointer;
     transition: 300ms;
-    color: #01724c;
+    color: #f0f8ff;
+    background-color: #f0f8ff21;
 }
 
-#mainSlider {
+#slider {
     width: 200px;
+}
+
+.notification {
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    font-size: 1.6rem;
+    margin: 0px 90px 60px 90px;
+    display: none;
+}
+
+#play-now{
+    width: 20%;
+}
+
+
+
+.grid-container {
+    background-color: #f0f8ff;
+    margin: auto;
+    width: 40%;
+    height: 70vh;
+    margin-bottom: 100px;
+    color: #01724c;
+    display: grid;
+}
+ .grid-element {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+} 
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .navigation {
+            display: flex;
+            flex-direction: row;
+        }
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    button {
+        width: 120px;
+    }
 }
