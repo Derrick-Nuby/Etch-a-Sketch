@@ -1,18 +1,43 @@
-body = document.querySelector("body");
+// const slider = document.getElementById("slider");
+const grid = document.getElementById("grid-container");
+const playInstructions = document.getElementById("playInstructions");
+const playNow = document.getElementById("play-now");
+const notification = document.getElementById("notification");
+// const clearAll = document.getElementById("clearAll");
 
-function updateSizeValue(value) {
-  document.getElementById("sizeValue").innerText = value + " X " + value;
+function updateSlider() {
+  const gridSize = slider.value;
+  document.getElementById("sizeValue").innerText =
+    slider.value + " X " + slider.value;
+  gridCreator(gridSize);
 }
-// title = document.createElement("h1");
-// title.textContent = "Sketch Paper Website | Etch a Sketch";
-// body.appendChild(title);
 
-// navigation = document.createElement("div");
-// navigation.classList.add("navigation");
-// navigation.textContent = "Hello world";
-// body.appendChild(navigation);
+playInstructions.addEventListener("click", () => {
+  notification.style.cssText =
+    "display: block;display: flex;flex-direction: column; gap: 20px; align-items: center;";
+  grid.style.cssText = "display: none;";
+});
 
-// container = document.createElement("div");
-// container.classList.add("container");
-// container.textContent = "Hello world";
-// body.appendChild(container);
+playNow.addEventListener("click", () => {
+  notification.style.cssText = "display: none;";
+  grid.style.cssText = "display: block;";
+});
+
+function clearAll() {
+  grid.innerHTML = "";
+}
+
+function gridCreator(gridSize) {
+  grid.innerHTML = "";
+  grid.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+  grid.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+
+  for (let i = 0; i < gridSize * gridSize; i++) {
+    const gridElement = document.createElement("div");
+    gridElement.classList.add("grid-element");
+    // gridElement.addEventListener("mouseover", changeColor);
+    // gridElement.addEventListener("mousedown", changeColor);
+    grid.appendChild(gridElement);
+  }
+}
+// gridCreator();
